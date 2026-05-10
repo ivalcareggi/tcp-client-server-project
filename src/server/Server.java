@@ -1,6 +1,7 @@
 package server;
 
 import model.*;
+import protocol.Comands;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -44,7 +45,7 @@ class Server {
 
         switch (command) {
 
-            case "LOGIN":
+            case Comands.LOGIN:
 
                 if(parts.length < 3){
                     writer.println("ERRO;Parametros invalidos");
@@ -74,7 +75,7 @@ class Server {
 
 
 
-            case "ADD_RECORD":
+            case Comands.ADD_RECORD:
 
                 if(loggedDoctor == null){
                     writer.println("ERRO;Nao autenticado");
@@ -109,7 +110,7 @@ class Server {
 
 
 
-            case "GET_RECORDS":
+            case Comands.GET_RECORDS:
 
                 if(loggedDoctor == null){
                     writer.println("ERRO;Nao autenticado");
@@ -143,7 +144,7 @@ class Server {
 
 
 
-            case "LOGOUT":
+            case Comands.LOGOUT:
 
                 writer.println("OK;Logout realizado");
 
